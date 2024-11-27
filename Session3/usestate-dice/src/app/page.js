@@ -8,36 +8,12 @@ import getRandomNumber from "./functions/random";
 export default function Home() {
   const [dice, setDice] = useState(1)
   const images = [
-    <Image className={styles.dice} aria-hidden
-      src="/dice/dice_1.png"
-      alt="File icon"
-      width={256}
-      height={256} />,
-    <Image className={styles.dice} aria-hidden
-      src="/dice/dice_2.png"
-      alt="File icon"
-      width={256}
-      height={256} />,
-    <Image className={styles.dice} aria-hidden
-      src="/dice/dice_3.png"
-      alt="File icon"
-      width={256}
-      height={256} />,
-    <Image className={styles.dice} aria-hidden
-      src="/dice/dice_4.png"
-      alt="File icon"
-      width={256}
-      height={256} />,
-    <Image className={styles.dice} aria-hidden
-      src="/dice/dice_5.png"
-      alt="File icon"
-      width={256}
-      height={256} />,
-    <Image className={styles.dice} aria-hidden
-      src="/dice/dice_6.png"
-      alt="File icon"
-      width={256}
-      height={256} />,
+    "/dice/dice_1.png",
+    "/dice/dice_2.png",
+    "/dice/dice_3.png",
+    "/dice/dice_4.png",
+    "/dice/dice_5.png",
+    "/dice/dice_6.png"
   ]
 
   function handleDiceRoll(maxNumber) {
@@ -45,11 +21,20 @@ export default function Home() {
     setDice(randomNumber)
   }
 
+  const imageElements = images.map((path, index) => {
+    return <Image key={index}
+      className={styles.dice} aria-hidden
+      src={path}
+      alt="File icon"
+      width={256}
+      height={256} />
+  })
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         {/* <h1>{dice}</h1>         */}
-        {images[dice - 1]}
+        {imageElements[dice - 1]}
         <button onClick={() => {
           handleDiceRoll(6)
         }}>Roll dice</button>
