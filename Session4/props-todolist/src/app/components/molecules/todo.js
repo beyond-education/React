@@ -1,3 +1,3 @@
 export default function ToDo({todo, checkbox}) {
-    return <label>{checkbox} {"  " + todo}</label>
+    return <div style={{display: "display"}}><label>{checkbox} {"  " + todo}</label></div>
 }

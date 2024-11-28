@@ -9,7 +9,13 @@ export default function ToDos({ todos, onHandleCheckboxClicked }) {
         return <ToDo key={index} todo={todo} checkbox={checkbox} />
     })
 
-    return <div style={{display: "flex", flexDirection: "columns", width: "100%"}}>
+    return <div
+        style={{
+            display: "flex",
+            justifyContent: "center",        
+            flexDirection: "column",
+            width: "100%"
+        }}>
         {listItems}
     </div>
 }
