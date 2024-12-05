@@ -1,7 +1,8 @@
 "use client"
 
-const { LoginRegisterContext } = require("@/app/page")
 import { useContext } from "react";
+import { LoginRegisterContext } from "../../page"
+
 
 const LoginRegisterTitle = () => {
     const context = useContext(LoginRegisterContext)

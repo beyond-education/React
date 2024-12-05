@@ -1,12 +1,14 @@
 "use client"
 import Image from "next/image";
-import styles from "./page.module.css";
+import pageStyle from "./page.module.css";
+import styles from "./styles/styles.module.css"
 import { createContext, useState } from "react";
 import Switch from "./components/molecules/switch";
 import Login from "./components/organisms/login";
 import Register from "./components/organisms/register";
 
 export const LoginRegisterContext = createContext()
+export const StyleContext = createContext()
 
 export default function Home() {
   const [isLogin, setIsLogin] = useState(true)
@@ -15,14 +17,16 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <div className={pageStyle.page}>
+      <main className={pageStyle.main}>
         <LoginRegisterContext.Provider value={{ isLogin, handleChange }} >
-          <Switch />
-          {isLogin ? <Login /> : <Register />}
+          <StyleContext.Provider value={{ styles }} >
+            <Switch />
+            {isLogin ? <Login /> : <Register />}
+          </StyleContext.Provider>
         </LoginRegisterContext.Provider>
       </main>
-      <footer className={styles.footer}>
+      <footer className={pageStyle.footer}>
         <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           target="_blank"
