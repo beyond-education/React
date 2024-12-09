@@ -1,5 +1,6 @@
 import { getJokes } from "../repository/repository"
 
-export const GET = async (request) => {
-    return Response.json({jokes: getJokes()}, {status: 200})
+export const GET = (request) => {
+    const jokes = getJokes()
+    return Response.json({jokes: jokes}, {status: 200})
 }

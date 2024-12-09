@@ -12,8 +12,8 @@ const Jokes = () => {
             const fetchedJokes = await response.json()
             setJokes(fetchedJokes.jokes)
         }
-
         fetchJokes()
+
     }, [])
 
     const onDoubleClickPressed = async (index) => {
@@ -22,7 +22,7 @@ const Jokes = () => {
         setSelectedJoke(joke.joke)
     }
 
-    const jokeElements = jokes.map((joke, index) => {
+    const jokeElements = jokes.map((joke, index) => {        
         return <div key={index} onDoubleClick={() => onDoubleClickPressed(index)}>{joke.text}</div>
     })
 
